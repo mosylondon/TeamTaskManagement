@@ -45,3 +45,89 @@ This project follows Clean Architecture with clear separation of concerns:
 ```bash
 git clone <repository-url>
 cd TeamTaskManagement
+
+API Usage Examples
+Authentication
+
+
+//Register
+
+POST /api/auth/register
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "firstName": "John",
+  "lastName": "Doe",
+  "password": "SecurePassword123!"
+}
+
+//login
+POST /api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "SecurePassword123!"
+}
+
+//Create Team
+POST /api/teams
+Authorization: Bearer <jwt-token>
+Content-Type: application/json
+
+{
+  "name": "Development Team",
+  "description": "Main development team"
+}
+
+
+//Add User to Team
+
+POST /api/teams/{teamId}/users
+Authorization: Bearer <jwt-token>
+Content-Type: application/json
+
+{
+  "userId": "user-guid-here"
+}
+
+
+//Create Task
+POST /api/teams/{teamId}/tasks
+Authorization: Bearer <jwt-token>
+Content-Type: application/json
+
+{
+  "title": "Implement user authentication",
+  "description": "Add JWT-based authentication to the API",
+  "dueDate": "2024-01-15T10:00:00Z",
+  "assignedToUserId": "user-guid-here"
+}
+
+
+//Update Task Status
+PATCH /api/tasks/{taskId}/status
+Authorization: Bearer <jwt-token>
+Content-Type: application/json
+
+{
+  "status": 1
+}
+
+// Database Schema
+The database uses the following main entities:
+
+Users: User accounts with authentication
+Teams: Team containers for tasks and users
+TeamUsers: Many-to-many relationship with roles
+Tasks: Task items with assignments and status
+
+//Assumptions
+
+Users must be authenticated to access any API endpoints except registration/login
+Only team admins can add users to teams
+All team members can view and manage team tasks
+Tasks can only be assigned to team members
+
+
