@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TeamTaskManagement.Domain\TeamTaskManagement.Domain.csproj" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.3" />
+    <PackageReference Include="xunit.assert" Version="2.9.3" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.9.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Tests\Services\" />
+    <ProjectReference Include="..\TeamTaskManagement.Domain\TeamTaskManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>
