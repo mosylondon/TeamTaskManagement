@@ -19,7 +19,7 @@ This project follows Clean Architecture with clear separation of concerns:
 - **BCrypt**: Password hashing
 - **Serilog**: Structured logging
 - **Swagger**: API documentation
-- **xUnit**: Unit testing framework
+- **xUnit**: Unit testing framework - Tests/Services in application module
 
 ## Features
 
