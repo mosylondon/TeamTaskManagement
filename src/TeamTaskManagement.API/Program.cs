@@ -150,7 +150,7 @@ namespace TeamTaskManagement.API
         });
                 });
 
-                // Add CORS if needed
+                
                 builder.Services.AddCors(options =>
                 {
                     options.AddPolicy("AllowAll", policy =>
